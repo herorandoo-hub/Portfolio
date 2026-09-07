@@ -1,24 +1,155 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { Reveal } from "@/components/site/Reveal";
+import { profile, skillGroups, categories } from "@/lib/portfolio-data";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Bryant Francisco — AI Automation Specialist" },
+      {
+        name: "description",
+        content:
+          "Bryant Francisco builds AI and CRM automations with n8n, Zapier, Make, and GoHighLevel to cut manual work and speed up follow-ups.",
+      },
+      { property: "og:title", content: "Bryant Francisco — AI Automation Specialist" },
+      {
+        property: "og:description",
+        content:
+          "AI automation specialist for workflow, CRM, and API integration projects across n8n, Zapier, Make, and GoHighLevel.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const projectCount = categories.reduce((n, c) => n + c.projects.length, 0);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <>
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-40 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 pt-20 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              Available for automation projects
+            </span>
+            <h1 className="mt-6 text-5xl leading-[1.05] font-bold sm:text-6xl lg:text-7xl">
+              Bryant
+              <br />
+              Francisco<span className="text-primary">.</span>
+            </h1>
+            <p className="mt-4 font-display text-lg text-muted-foreground">
+              {profile.role} <span className="text-primary">/</span> {profile.tagline}
+            </p>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+              {profile.summary}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/portfolio"
+                className="press inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                View my work <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="press inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
+              >
+                Get in touch
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="surface-card p-7">
+              <p className="font-display text-xs tracking-widest text-muted-foreground uppercase">
+                At a glance
+              </p>
+              <div className="mt-5 grid grid-cols-2 gap-5">
+                <Stat value={`${projectCount}+`} label="Automation builds" />
+                <Stat value="4" label="Platforms mastered" />
+                <Stat value="4" label="Certifications" />
+                <Stat value="20+" label="Tools integrated" />
+              </div>
+              <div className="mt-6 space-y-2 border-t border-border pt-5 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary" /> {profile.location}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-primary" /> {profile.phone}
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-primary" /> {profile.email}
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <Reveal>
+            <h2 className="text-3xl font-bold sm:text-4xl">Core skills</h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              The stack I use to connect systems, automate follow-ups, and put AI to work inside
+              real business processes.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {skillGroups.map((group, i) => (
+              <Reveal key={group.label} delay={i * 70}>
+                <div className="surface-card h-full p-6">
+                  <h3 className="font-display text-sm tracking-widest text-primary uppercase">
+                    {group.label}
+                  </h3>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-20">
+        <Reveal className="surface-card flex flex-col items-start justify-between gap-6 p-10 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              Have a process that eats your team's time?
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Tell me the workflow and I'll map out how to automate it.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="press inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Start a conversation <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
+      </section>
+    </>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <p className="font-display text-3xl font-bold text-primary">{value}</p>
+      <p className="mt-1 text-xs tracking-wide text-muted-foreground uppercase">{label}</p>
     </div>
   );
 }
