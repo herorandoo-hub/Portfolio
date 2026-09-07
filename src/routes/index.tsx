@@ -1,7 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { profile, skillGroups, categories } from "@/lib/portfolio-data";
+import { ServicesSection } from "@/components/site/sections/ServicesSection";
+import { ExperienceSection } from "@/components/site/sections/ExperienceSection";
+import { PortfolioSection } from "@/components/site/sections/PortfolioSection";
+import { TestimonialsSection } from "@/components/site/sections/TestimonialsSection";
+import { ContactSection } from "@/components/site/sections/ContactSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,6 +23,8 @@ export const Route = createFileRoute("/")({
         content:
           "AI automation specialist for workflow, CRM, and API integration projects across n8n, Zapier, Make, and GoHighLevel.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -28,7 +35,7 @@ function Index() {
 
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section id="home" className="relative scroll-mt-20 overflow-hidden">
         <div className="pointer-events-none absolute -top-40 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="mx-auto grid max-w-6xl gap-12 px-5 pt-20 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <Reveal>
@@ -48,18 +55,18 @@ function Index() {
               {profile.summary}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/portfolio"
+              <a
+                href="#portfolio"
                 className="press inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 View my work <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/contact"
+              </a>
+              <a
+                href="#contact"
                 className="press inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
               >
                 Get in touch
-              </Link>
+              </a>
             </div>
           </Reveal>
 
@@ -90,7 +97,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-surface">
+      <section id="skills" className="scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-16">
           <Reveal>
             <h2 className="text-3xl font-bold sm:text-4xl">Core skills</h2>
@@ -123,24 +130,11 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <Reveal className="surface-card flex flex-col items-start justify-between gap-6 p-10 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="text-2xl font-bold sm:text-3xl">
-              Have a process that eats your team's time?
-            </h2>
-            <p className="mt-2 text-muted-foreground">
-              Tell me the workflow and I'll map out how to automate it.
-            </p>
-          </div>
-          <Link
-            to="/contact"
-            className="press inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Start a conversation <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-      </section>
+      <ServicesSection />
+      <ExperienceSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactSection />
     </>
   );
 }
