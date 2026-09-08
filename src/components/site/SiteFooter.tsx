@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { profile } from "@/lib/portfolio-data";
 
 export function SiteFooter() {
@@ -25,9 +24,9 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
-          <Link to="/contact" className="press hover:text-primary">
+          <a href="#contact" className="press hover:text-primary">
             Contact
-          </Link>
+          </a>
         </div>
       </div>
       <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
