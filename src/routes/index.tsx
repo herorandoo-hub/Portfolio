@@ -7,6 +7,7 @@ import { ExperienceSection } from "@/components/site/sections/ExperienceSection"
 import { PortfolioSection } from "@/components/site/sections/PortfolioSection";
 import { TestimonialsSection } from "@/components/site/sections/TestimonialsSection";
 import { ContactSection } from "@/components/site/sections/ContactSection";
+import portraitAsset from "@/assets/bryant-francisco-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +37,6 @@ function Index() {
   return (
     <>
       <section id="home" className="relative scroll-mt-20 overflow-hidden">
-        <div className="pointer-events-none absolute -top-40 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
         <div className="mx-auto grid max-w-6xl gap-12 px-5 pt-20 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
@@ -71,26 +71,31 @@ function Index() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="surface-card p-7">
-              <p className="font-display text-xs tracking-widest text-muted-foreground uppercase">
-                At a glance
-              </p>
-              <div className="mt-5 grid grid-cols-2 gap-5">
-                <Stat value={`${projectCount}+`} label="Automation builds" />
-                <Stat value="4" label="Platforms mastered" />
-                <Stat value="4" label="Certifications" />
-                <Stat value="20+" label="Tools integrated" />
+            <div className="overflow-hidden rounded-md border border-border bg-surface shadow-[var(--shadow-hard)]">
+              <div className="aspect-[4/5] overflow-hidden bg-secondary">
+                <img
+                  src={portraitAsset.url}
+                  alt="Bryant Francisco, AI Automation Specialist"
+                  className="h-full w-full object-cover object-top"
+                  fetchPriority="high"
+                />
               </div>
-              <div className="mt-6 space-y-2 border-t border-border pt-5 text-sm text-muted-foreground">
-                <p className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-primary" /> {profile.location}
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-primary" /> {profile.phone}
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-primary" /> {profile.email}
-                </p>
+              <div className="p-6">
+                <div className="grid grid-cols-2 gap-5">
+                  <Stat value={`${projectCount}+`} label="Automation builds" />
+                  <Stat value="4" label="Platforms mastered" />
+                </div>
+                <div className="mt-6 space-y-2 border-t border-border pt-5 text-sm text-muted-foreground">
+                  <p className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" /> {profile.location}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 shrink-0 text-primary" /> {profile.phone}
+                  </p>
+                  <p className="flex items-center gap-2 break-all">
+                    <Mail className="h-4 w-4 shrink-0 text-primary" /> {profile.email}
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>

@@ -47,6 +47,16 @@ export function PortfolioSection() {
                 {category.projects.map((project, i) => (
                   <Reveal key={project.title} delay={i * 70}>
                     <article className="surface-card h-full p-7">
+                      {project.image ? (
+                        <div className="-mx-7 -mt-7 mb-6 aspect-[16/9] overflow-hidden rounded-t-md border-b border-border bg-secondary">
+                          <img
+                            src={project.image}
+                            alt={project.imageAlt ?? `${project.title} workflow`}
+                            className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : null}
                       <span className="font-display text-xs tracking-widest text-muted-foreground uppercase">
                         {category.label}
                       </span>

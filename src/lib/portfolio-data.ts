@@ -1,3 +1,11 @@
+import aiChatbotAsset from "@/assets/ai-customer-support-chatbot.jpg.asset.json";
+import aiVideoAsset from "@/assets/ai-video-creator-n8n.jpg.asset.json";
+import contentRepurposingAsset from "@/assets/content-repurposing-zapier.jpg.asset.json";
+import gmailAttachmentsAsset from "@/assets/gmail-attachments-make.jpg.asset.json";
+import leadAutomationAsset from "@/assets/lead-automation-zapier.jpg.asset.json";
+import leadFollowUpAsset from "@/assets/lead-follow-up-ghl.jpg.asset.json";
+import xeroAsanaAsset from "@/assets/xero-asana-make.jpg.asset.json";
+
 export const profile = {
   name: "Bryant Francisco",
   role: "AI Automation Specialist",
@@ -87,6 +95,8 @@ export type Project = {
   title: string;
   stack: string[];
   description: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type Category = {
@@ -108,12 +118,16 @@ export const categories: Category[] = [
       {
         title: "AI Customer Support Chatbot",
         stack: ["n8n", "Google Gemini", "Webhooks", "Google Docs", "Meta API"],
+        image: aiChatbotAsset.url,
+        imageAlt: "n8n workflow for an AI customer support chatbot",
         description:
           "AI-powered customer support workflow that receives messages through webhooks, retrieves FAQ information from a knowledge base, processes inquiries using an AI Agent, maintains conversation memory, and connects with Meta for automated customer responses.",
       },
       {
         title: "AI Video Creator & Social Media Automation",
         stack: ["n8n", "OpenAI", "Google Sheets", "Video API", "Facebook Graph API", "YouTube"],
+        image: aiVideoAsset.url,
+        imageAlt: "n8n workflow for automated AI video creation and publishing",
         description:
           "Scheduled AI video workflow that generates content prompts, retrieves data from Google Sheets, connects to a video-generation API, monitors generation status, handles errors, processes generated files, and prepares content for social media publishing.",
       },
@@ -141,12 +155,16 @@ export const categories: Category[] = [
       {
         title: "AI Lead Automation & Enrichment",
         stack: ["Zapier", "Webhooks", "Google Sheets", "Slack", "AI", "Gmail"],
+        image: leadAutomationAsset.url,
+        imageAlt: "Zapier workflow for lead enrichment and automated follow-up",
         description:
           "Multi-step lead automation that receives lead information through a webhook, processes and formats data, routes leads based on conditions, records information in Google Sheets, sends Slack notifications, applies AI processing, and triggers automated email communication.",
       },
       {
         title: "AI Content Repurposing & Social Media Automation",
         stack: ["Zapier", "Google Drive", "AI by Zapier", "Facebook Pages"],
+        image: contentRepurposingAsset.url,
+        imageAlt: "Zapier workflow for repurposing content into Facebook posts",
         description:
           "Content repurposing workflow that detects new files in Google Drive, generates transcripts using AI, transforms content into social media material, processes multiple content items, and publishes content through automated workflow paths.",
       },
@@ -162,12 +180,16 @@ export const categories: Category[] = [
       {
         title: "Automated Gmail Attachment Management",
         stack: ["Make", "Gmail", "AI", "Google Drive", "Google Sheets"],
+        image: gmailAttachmentsAsset.url,
+        imageAlt: "Make scenario for sorting Gmail attachments into Google Drive",
         description:
           "Workflow that monitors Gmail attachments, processes files using AI, generates appropriate file names, uploads files to Google Drive, records information in Google Sheets, and sends an automated email summary.",
       },
       {
         title: "Xero Report Delivery to Asana",
         stack: ["Make", "Xero API", "Asana", "Google Sheets", "Router", "Iterator"],
+        image: xeroAsanaAsset.url,
+        imageAlt: "Make scenario for delivering Xero reports to Asana",
         description:
           "Automation that retrieves business data from Xero through an API, processes information using routers and iterators, stores data in Google Sheets, aggregates report information, and delivers reports to Asana.",
       },
@@ -183,6 +205,8 @@ export const categories: Category[] = [
       {
         title: "Lead Capture & Automated Follow-Up System",
         stack: ["GoHighLevel", "Forms", "CRM", "SMS", "Calls", "Workflows"],
+        image: leadFollowUpAsset.url,
+        imageAlt: "GoHighLevel workflow for lead capture and automated follow-up",
         description:
           "Lead follow-up system that captures form submissions, applies CRM tags, sends automated SMS and call sequences, waits for customer responses, and uses conditional logic to determine the appropriate follow-up action.",
       },
