@@ -4,16 +4,16 @@ import { experience } from "@/lib/portfolio-data";
 export function ExperienceSection() {
   return (
     <section id="experience" className="scroll-mt-20">
-      <div className="mx-auto max-w-4xl px-5 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
         <Reveal>
           <p className="font-display text-xs tracking-widest text-primary uppercase">Experience</p>
-          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Work &amp; background</h2>
+          <h2 className="section-title mt-3 text-5xl font-bold italic sm:text-7xl">Work &amp; background</h2>
           <p className="mt-4 text-muted-foreground">
             Hands-on automation work, formal education, and platform certifications.
           </p>
         </Reveal>
 
-        <div className="relative mt-14 border-l border-border pl-8">
+        <div className="relative mt-16 border-l border-border pl-8 lg:ml-[30%] lg:pl-14">
           {experience.map((item, i) => (
             <Reveal key={item.title} delay={i * 90} className="relative pb-12 last:pb-0">
               <span className="absolute top-1.5 -left-[41px] h-4 w-4 rounded-full border-4 border-background bg-primary" />

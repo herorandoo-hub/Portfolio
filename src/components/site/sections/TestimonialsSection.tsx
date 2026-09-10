@@ -5,12 +5,12 @@ import { testimonials } from "@/lib/portfolio-data";
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="scroll-mt-20">
-      <div className="mx-auto max-w-6xl px-5 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
         <Reveal>
           <p className="font-display text-xs tracking-widest text-primary uppercase">
             Testimonials
           </p>
-          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Kind words</h2>
+          <h2 className="section-title mt-3 text-5xl font-bold italic sm:text-7xl">Kind words</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Feedback from the people whose day-to-day work got a little lighter.
           </p>
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 80}>
-              <figure className="surface-card h-full p-8">
+              <figure className="testimonial-card h-full border-t border-border p-8 lg:p-10">
                 <Quote className="h-7 w-7 text-primary" />
                 <blockquote className="mt-4 text-base leading-relaxed">"{t.quote}"</blockquote>
                 <figcaption className="mt-6 border-t border-border pt-4">
