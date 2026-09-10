@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { profile } from "@/lib/portfolio-data";
+import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   const [name, setName] = useState("");
@@ -14,10 +15,10 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="scroll-mt-20 border-t border-border bg-surface">
-      <div className="mx-auto max-w-6xl px-5 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
         <Reveal>
           <p className="font-display text-xs tracking-widest text-primary uppercase">Contact</p>
-          <h2 className="mt-3 text-4xl font-bold sm:text-5xl">Let's automate it</h2>
+          <h2 className="section-title mt-3 text-5xl font-bold italic sm:text-7xl">Let's automate it</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
             Tell me about the process that's slowing you down and I'll come back with a plan.
           </p>
@@ -25,7 +26,7 @@ export function ContactSection() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
-            <div className="surface-card h-full p-8">
+            <div className="h-full border-t border-primary p-8">
               <h3 className="text-xl font-bold">Details</h3>
               <ul className="mt-6 space-y-4 text-sm">
                 <li className="flex items-center gap-3">
@@ -64,7 +65,7 @@ export function ContactSection() {
 
           <Reveal delay={100}>
             <form
-              className="surface-card p-8"
+              className="border border-border bg-card p-8"
               onSubmit={(e) => {
                 e.preventDefault();
                 window.location.href = mailto;
@@ -76,7 +77,7 @@ export function ContactSection() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
+                    className="w-full rounded-none border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
                     placeholder="Your name"
                   />
                 </Field>
@@ -86,7 +87,7 @@ export function ContactSection() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
+                    className="w-full rounded-none border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
                     placeholder="you@company.com"
                   />
                 </Field>
@@ -98,17 +99,17 @@ export function ContactSection() {
                     rows={6}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full resize-none rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
+                    className="w-full resize-none rounded-none border border-input bg-background px-3 py-2.5 text-sm outline-none focus:border-primary"
                     placeholder="Describe your current process..."
                   />
                 </Field>
               </div>
-              <button
+              <Button
                 type="submit"
-                className="press mt-6 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="press mt-6 rounded-none px-6 py-3 text-sm font-semibold uppercase tracking-widest"
               >
                 Send message <Send className="h-4 w-4" />
-              </button>
+              </Button>
               <p className="mt-3 text-xs text-muted-foreground">
                 This opens your email app with the message ready to send.
               </p>

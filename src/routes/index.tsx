@@ -7,6 +7,7 @@ import { ExperienceSection } from "@/components/site/sections/ExperienceSection"
 import { PortfolioSection } from "@/components/site/sections/PortfolioSection";
 import { TestimonialsSection } from "@/components/site/sections/TestimonialsSection";
 import { ContactSection } from "@/components/site/sections/ContactSection";
+import { Button } from "@/components/ui/button";
 import portraitAsset from "@/assets/bryant-francisco-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -36,51 +37,46 @@ function Index() {
 
   return (
     <>
-      <section id="home" className="relative scroll-mt-20 overflow-hidden">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 pt-20 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+      <section id="home" className="hero-stage relative scroll-mt-20 overflow-hidden">
+        <div className="hero-monogram" aria-hidden="true">BF</div>
+        <div className="mx-auto grid min-h-[calc(100svh-72px)] max-w-7xl gap-16 px-5 py-16 lg:grid-cols-12 lg:items-center lg:px-8">
+          <Reveal className="relative z-10 lg:col-span-7">
+            <span className="eyebrow inline-flex items-center gap-3 text-xs font-bold text-primary uppercase">
               <span className="h-2 w-2 rounded-full bg-primary" />
               Available for automation projects
             </span>
-            <h1 className="mt-6 text-5xl leading-[1.05] font-bold sm:text-6xl lg:text-7xl">
+            <h1 className="hero-title mt-7 text-[clamp(4.25rem,10vw,9rem)] leading-[0.82] font-bold italic">
               Bryant
               <br />
-              Francisco<span className="text-primary">.</span>
+              <span className="ml-[0.08em] text-primary not-italic">Francisco.</span>
             </h1>
-            <p className="mt-4 font-display text-lg text-muted-foreground">
+            <p className="mt-8 font-display text-sm font-bold tracking-widest text-foreground uppercase">
               {profile.role} <span className="text-primary">/</span> {profile.tagline}
             </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            <p className="mt-7 max-w-xl border-l border-primary pl-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
               {profile.summary}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#portfolio"
-                className="press inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                View my work <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#contact"
-                className="press inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary hover:text-primary"
-              >
-                Get in touch
-              </a>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="press rounded-none px-8 uppercase tracking-widest">
+                <a href="#portfolio">View my work <ArrowRight className="h-4 w-4" /></a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="press rounded-none px-8 uppercase tracking-widest">
+                <a href="#contact">Get in touch</a>
+              </Button>
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <div className="overflow-hidden rounded-md border border-border bg-surface shadow-[var(--shadow-hard)]">
-              <div className="aspect-[4/5] overflow-hidden bg-secondary">
+          <Reveal delay={120} className="relative lg:col-span-5">
+            <div className="portrait-frame group relative mx-auto max-w-md">
+              <div className="aspect-[3/4] overflow-hidden bg-secondary">
                 <img
                   src={portraitAsset.url}
                   alt="Bryant Francisco, AI Automation Specialist"
-                  className="h-full w-full object-cover object-top"
+                  className="portrait-image h-full w-full object-cover object-top"
                   fetchPriority="high"
                 />
               </div>
-              <div className="p-6">
+              <div className="portrait-meta p-6">
                 <div className="grid grid-cols-2 gap-5">
                   <Stat value={`${projectCount}+`} label="Automation builds" />
                   <Stat value="4" label="Platforms mastered" />
@@ -97,24 +93,26 @@ function Index() {
                   </p>
                 </div>
               </div>
+              </div>
+              <div className="portrait-index" aria-hidden="true"><span>01</span><small>Principal</small></div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section id="skills" className="scroll-mt-20 border-y border-border bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-16">
+      <section id="skills" className="editorial-band scroll-mt-20 border-y border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
           <Reveal>
-            <h2 className="text-3xl font-bold sm:text-4xl">Core skills</h2>
+            <h2 className="section-title text-5xl font-bold italic sm:text-7xl">Core skills</h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
               The stack I use to connect systems, automate follow-ups, and put AI to work inside
               real business processes.
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-0 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
             {skillGroups.map((group, i) => (
               <Reveal key={group.label} delay={i * 70}>
-                <div className="surface-card h-full p-6">
+                <div className="editorial-cell h-full p-7 lg:p-9">
                   <h3 className="font-display text-sm tracking-widest text-primary uppercase">
                     {group.label}
                   </h3>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const nav = [
   { id: "home", label: "Home" },
@@ -14,12 +15,9 @@ const nav = [
 
 export function Logo() {
   return (
-    <a href="#home" className="press group flex items-center gap-2">
-      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary font-display text-sm font-bold text-primary-foreground transition-transform duration-300 group-hover:rotate-6">
-        BF
-      </span>
-      <span className="font-display text-base font-bold tracking-tight">
-        BRYANT<span className="text-primary">.</span>FRANCISCO
+    <a href="#home" className="press group flex items-center">
+      <span className="font-display text-base font-bold uppercase">
+        Bryant<span className="text-primary">.</span>Francisco
       </span>
     </a>
   );
@@ -48,13 +46,13 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-500",
         scrolled
           ? "border-b border-border bg-background/85 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <Logo />
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -63,7 +61,7 @@ export function SiteHeader() {
               key={item.id}
               href={`#${item.id}`}
               className={cn(
-                "press rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                "press px-3 py-2 text-xs font-bold uppercase transition-colors hover:text-foreground",
                 active === item.id ? "text-primary" : "text-muted-foreground",
               )}
             >
@@ -74,14 +72,16 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <button
+          <Button
             type="button"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
-            className="press inline-flex h-9 w-9 items-center justify-center rounded-md border border-border md:hidden"
+            variant="outline"
+            size="icon"
+            className="press rounded-none md:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
+          </Button>
         </div>
       </div>
 

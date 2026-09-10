@@ -5,3 +5,7 @@
 - [x] Remove legacy standalone section routes
 - [x] Update footer contact link for the one-page layout
 - [x] Verify the one-page portfolio on desktop and mobile
+
+- [x] Apply the selected Editorial Crimson redesign across the one-page portfolio
+- [x] Add smooth reference-inspired motion with reduced-motion support
+- [ ] Verify desktop, mobile, dark mode, filters, and contact form
