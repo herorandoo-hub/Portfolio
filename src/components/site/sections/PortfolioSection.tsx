@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { categories } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Expand, X } from "lucide-react";
+
+type LightboxImage = { src: string; alt: string };
 
 export function PortfolioSection() {
   const [active, setActive] = useState<string>("all");
