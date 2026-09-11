@@ -121,6 +121,31 @@ export function PortfolioSection() {
           ))}
         </div>
       </div>
+
+      {lightbox ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.alt}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm sm:p-10"
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            onClick={closeLightbox}
+            aria-label="Close enlarged image"
+            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center border border-white/30 bg-black/60 text-white transition-colors hover:bg-primary"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="max-h-full max-w-full border border-white/20 object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      ) : null}
     </section>
   );
 }
