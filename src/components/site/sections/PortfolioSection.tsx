@@ -9,7 +9,23 @@ type LightboxImage = { src: string; alt: string };
 
 export function PortfolioSection() {
   const [active, setActive] = useState<string>("all");
+  const [lightbox, setLightbox] = useState<LightboxImage | null>(null);
   const shown = active === "all" ? categories : categories.filter((c) => c.id === active);
+
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, closeLightbox]);
 
   return (
     <section id="portfolio" className="editorial-dark scroll-mt-20 border-y border-border bg-surface">
@@ -55,14 +71,30 @@ export function PortfolioSection() {
                   <Reveal key={project.title} delay={i * 70}>
                      <article className="project-card group h-full border border-border bg-card p-7">
                       {project.image ? (
-                        <div className="-mx-7 -mt-7 mb-6 aspect-[16/9] overflow-hidden rounded-t-md border-b border-border bg-secondary">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setLightbox({
+                              src: project.image!,
+                              alt: project.imageAlt ?? `${project.title} workflow`,
+                            })
+                          }
+                          aria-label={`Enlarge ${project.title} workflow screenshot`}
+                          className="group/image relative -mx-7 -mt-7 mb-6 block aspect-[16/9] w-[calc(100%+3.5rem)] cursor-zoom-in overflow-hidden rounded-t-md border-b border-border bg-secondary"
+                        >
                           <img
                             src={project.image}
                             alt={project.imageAlt ?? `${project.title} workflow`}
-                             className="h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-[1.035]"
+                            className="h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-[1.035]"
                             loading="lazy"
                           />
-                        </div>
+                          <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover/image:bg-black/35">
+                            <span className="flex items-center gap-2 border border-white/40 bg-black/55 px-3 py-1.5 text-[11px] font-bold tracking-widest text-white uppercase opacity-0 transition-opacity duration-300 group-hover/image:opacity-100">
+                              <Expand className="h-3.5 w-3.5" />
+                              View
+                            </span>
+                          </span>
+                        </button>
                       ) : null}
                       <span className="font-display text-xs tracking-widest text-muted-foreground uppercase">
                         {category.label}
