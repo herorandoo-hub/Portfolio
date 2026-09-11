@@ -2,6 +2,8 @@ import aiChatbotAsset from "@/assets/ai-customer-support-chatbot.jpg.asset.json"
 import aiVideoAsset from "@/assets/ai-video-creator-n8n.jpg.asset.json";
 import contentRepurposingAsset from "@/assets/content-repurposing-zapier.jpg.asset.json";
 import gmailAttachmentsAsset from "@/assets/gmail-attachments-make.jpg.asset.json";
+import hrEvaluationAsset from "@/assets/hr-evaluation-n8n.jpg.asset.json";
+import jobScraperAsset from "@/assets/job-scraper-n8n.jpg.asset.json";
 import leadAutomationAsset from "@/assets/lead-automation-zapier.jpg.asset.json";
 import leadFollowUpAsset from "@/assets/lead-follow-up-ghl.jpg.asset.json";
 import xeroAsanaAsset from "@/assets/xero-asana-make.jpg.asset.json";
@@ -133,15 +135,19 @@ export const categories: Category[] = [
       },
       {
         title: "AI Recruitment & Candidate Evaluation Assistant",
-        stack: ["n8n", "AI", "Google Drive", "Forms", "Gmail", "Google Calendar"],
+        stack: ["n8n", "OpenAI Chat Model", "Google Drive", "Airtable", "Gmail", "Google Calendar"],
+        image: hrEvaluationAsset.url,
+        imageAlt: "n8n workflow for AI recruitment and candidate evaluation with CV screening, questionnaires, and interview scheduling",
         description:
-          "AI-assisted recruitment workflow that processes candidate information, supports candidate evaluation, generates questionnaires, sends personalized communication, schedules interviews, and updates candidate records.",
+          "AI-assisted recruitment workflow that processes form submissions, uploads CVs to Google Drive, extracts text from files, and uses an AI agent to evaluate candidates — generating questionnaires, sending personalized emails, scheduling interviews, and updating candidate records automatically.",
       },
       {
         title: "AI Job Search & Resume Assistant",
-        stack: ["n8n", "Slack", "OpenRouter", "Job Search API", "Google Drive", "AI"],
+        stack: ["n8n", "Slack", "OpenAI", "Job Search API", "Google Drive", "Gmail"],
+        image: jobScraperAsset.url,
+        imageAlt: "n8n workflow for an AI job scraper with resume tailoring and Gmail drafts",
         description:
-          "AI-powered job-search workflow that receives requests through Slack, validates search queries, retrieves job listings through an API, processes job information, and uses AI to assist with customized resume content.",
+          "AI-powered job-search workflow that receives requests through Slack, validates search queries, retrieves job listings through an API, loops through each result, and uses AI to match resume content — then saves tailored resumes to Google Drive and drafts follow-up emails in Gmail.",
       },
     ],
   },
