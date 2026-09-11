@@ -93,7 +93,6 @@ function Index() {
                   </p>
                 </div>
               </div>
-              </div>
               <div className="portrait-index" aria-hidden="true"><span>01</span><small>Principal</small></div>
             </div>
           </Reveal>
