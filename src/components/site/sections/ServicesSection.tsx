@@ -15,20 +15,18 @@ export function ServicesSection() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-0 border-t border-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={i * 70}>
-              <article className="editorial-cell group h-full p-8 lg:p-10">
-                <span className="font-display text-5xl font-bold text-primary/45 transition-colors group-hover:text-primary">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 text-xl font-bold">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {service.blurb}
-                </p>
+              <article className={`step-card group ${i % 2 === 0 ? "step-card--cream" : "step-card--wine"}`}>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="pt-1 text-lg font-bold">{service.title}</h3>
+                </div>
+                <p className="step-body mt-3">{service.blurb}</p>
                 <ul className="mt-5 space-y-2">
                   {service.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={p} className="step-body flex items-start gap-2">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       {p}
                     </li>
