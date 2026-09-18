@@ -48,7 +48,7 @@ function Index() {
             <h1 className="hero-title mt-7 text-[clamp(4.25rem,10vw,9rem)] leading-[0.82] font-bold italic">
               Bryant
               <br />
-              <span className="ml-[0.08em] text-primary not-italic">Francisco.</span>
+              <span className="ml-[0.08em] text-secondary not-italic">Francisco.</span>
             </h1>
             <p className="mt-8 font-display text-sm font-bold tracking-widest text-foreground uppercase">
               {profile.role} <span className="text-primary">/</span> {profile.tagline}
@@ -57,10 +57,10 @@ function Index() {
               {profile.summary}
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="press rounded-none px-8 uppercase tracking-widest">
+              <Button asChild size="lg" className="press rounded-full px-8 uppercase tracking-widest">
                 <a href="#portfolio">View my work <ArrowRight className="h-4 w-4" /></a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="press rounded-none px-8 uppercase tracking-widest">
+              <Button asChild size="lg" variant="outline" className="press rounded-full border-secondary/40 px-8 uppercase tracking-widest">
                 <a href="#contact">Get in touch</a>
               </Button>
             </div>
@@ -68,7 +68,7 @@ function Index() {
 
           <Reveal delay={120} className="relative lg:col-span-5">
             <div className="portrait-frame group relative mx-auto max-w-md">
-              <div className="aspect-[3/4] overflow-hidden bg-secondary">
+              <div className="portrait-photo aspect-[3/4] overflow-hidden bg-muted">
                 <img
                   src={portraitAsset.url}
                   alt="Bryant Francisco, AI Automation Specialist"
