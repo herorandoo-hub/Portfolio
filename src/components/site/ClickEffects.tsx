@@ -27,6 +27,10 @@ export function ScrollProgress() {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
       bar.style.transform = `scaleX(${pct / 100})`;
+      const monogram = document.querySelector<HTMLElement>(".hero-monogram");
+      const portrait = document.querySelector<HTMLElement>(".hero-portrait");
+      if (monogram) monogram.style.transform = `translate3d(0, ${window.scrollY * 0.16}px, 0)`;
+      if (portrait) portrait.style.transform = `translate3d(0, ${window.scrollY * -0.035}px, 0)`;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

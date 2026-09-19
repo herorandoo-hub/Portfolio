@@ -76,7 +76,7 @@ export function PortfolioSection() {
                           type="button"
                           onClick={() =>
                             setLightbox({
-                               src: project.image,
+                              src: project.image ?? "",
                               alt: project.imageAlt ?? `${project.title} workflow`,
                             })
                           }
