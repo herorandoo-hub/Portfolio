@@ -5,7 +5,8 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <Reveal>
+        <Reveal variant="left">
+          <p className="section-index font-display">03</p>
           <p className="font-display text-xs tracking-widest text-primary uppercase">Experience</p>
           <h2 className="section-title mt-3 text-5xl font-bold italic sm:text-7xl">Work &amp; background</h2>
           <p className="mt-4 text-muted-foreground">
@@ -15,7 +16,7 @@ export function ExperienceSection() {
 
         <div className="relative mt-16 border-l border-border pl-8 lg:ml-[30%] lg:pl-14">
           {experience.map((item, i) => (
-            <Reveal key={item.title} delay={i * 90} className="relative pb-12 last:pb-0">
+            <Reveal key={item.title} delay={i * 90} variant={i % 2 === 0 ? "left" : "right"} className="experience-entry relative pb-12 last:pb-0">
               <span className="absolute top-1.5 -left-[41px] h-4 w-4 rounded-full border-4 border-background bg-primary" />
               <p className="font-display text-xs tracking-widest text-primary uppercase">
                 {item.period}

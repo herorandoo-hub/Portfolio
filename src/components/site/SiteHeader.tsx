@@ -52,7 +52,7 @@ export function SiteHeader() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex h-[64px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <Logo />
 
         <nav className="hidden items-center gap-1 md:flex">
