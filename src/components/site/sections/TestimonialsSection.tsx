@@ -6,7 +6,8 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <Reveal>
+        <Reveal variant="left">
+          <p className="section-index font-display">05</p>
           <p className="font-display text-xs tracking-widest text-primary uppercase">
             Testimonials
           </p>
@@ -18,7 +19,7 @@ export function TestimonialsSection() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 80}>
+            <Reveal key={t.name} delay={i * 80} variant={i % 2 === 0 ? "left" : "right"}>
               <figure className="testimonial-card h-full border-t border-border p-8 lg:p-10">
                 <Quote className="h-7 w-7 text-primary" />
                 <blockquote className="mt-4 text-base leading-relaxed">"{t.quote}"</blockquote>

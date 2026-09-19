@@ -38,14 +38,17 @@ function Index() {
   return (
     <>
       <section id="home" className="hero-stage relative scroll-mt-20 overflow-hidden">
-        <div className="hero-monogram" aria-hidden="true">BF</div>
-        <div className="mx-auto grid min-h-[calc(100svh-72px)] max-w-7xl gap-16 px-5 py-16 lg:grid-cols-12 lg:items-center lg:px-8">
-          <Reveal className="relative z-10 lg:col-span-7">
+        <div className="hero-monogram" aria-hidden="true">Portfolio</div>
+        <div className="hero-grid mx-auto grid min-h-[calc(100svh-72px)] max-w-7xl gap-10 px-5 py-10 lg:grid-cols-12 lg:items-center lg:px-8 lg:py-16">
+          <Reveal className="relative z-20 lg:col-span-7" variant="left">
             <span className="eyebrow inline-flex items-center gap-3 text-xs font-bold text-primary uppercase">
               <span className="h-2 w-2 rounded-full bg-primary" />
               Available for automation projects
             </span>
-            <h1 className="hero-title mt-7 text-[clamp(4.25rem,10vw,9rem)] leading-[0.82] font-bold italic">
+            <p className="hero-kicker mt-7 font-display text-sm font-semibold text-muted-foreground uppercase">
+              AI Automation Portfolio
+            </p>
+            <h1 className="hero-title mt-2 text-[clamp(4.25rem,10vw,9rem)] leading-[0.8] font-bold italic">
               Bryant
               <br />
               <span className="ml-[0.08em] text-secondary not-italic">Francisco.</span>
@@ -66,7 +69,7 @@ function Index() {
             </div>
           </Reveal>
 
-          <Reveal delay={120} className="relative lg:col-span-5">
+          <Reveal delay={120} className="hero-portrait relative z-10 lg:col-span-5" variant="scale">
             <div className="portrait-frame group relative mx-auto max-w-md">
               <div className="portrait-photo aspect-[3/4] overflow-hidden bg-muted">
                 <img
@@ -100,7 +103,8 @@ function Index() {
 
       <section id="skills" className="editorial-band scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-          <Reveal>
+          <Reveal variant="left">
+            <p className="section-index font-display">01</p>
             <h2 className="section-title text-5xl font-bold italic sm:text-7xl">Core skills</h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
               The stack I use to connect systems, automate follow-ups, and put AI to work inside
@@ -109,7 +113,7 @@ function Index() {
           </Reveal>
           <div className="mt-14 grid gap-0 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
             {skillGroups.map((group, i) => (
-              <Reveal key={group.label} delay={i * 70}>
+              <Reveal key={group.label} delay={i * 70} variant={i % 2 === 0 ? "left" : "right"}>
                 <div className="editorial-cell h-full p-7 lg:p-9">
                   <h3 className="font-display text-sm tracking-widest text-primary uppercase">
                     {group.label}

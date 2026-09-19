@@ -16,7 +16,8 @@ export function ContactSection() {
   return (
     <section id="contact" className="scroll-mt-20 border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-5 py-28 lg:px-8">
-        <Reveal>
+        <Reveal variant="left">
+          <p className="section-index font-display">06</p>
           <p className="font-display text-xs tracking-widest text-primary uppercase">Contact</p>
           <h2 className="section-title mt-3 text-5xl font-bold italic sm:text-7xl">Let's automate it</h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -25,7 +26,7 @@ export function ContactSection() {
         </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <Reveal>
+          <Reveal variant="left">
             <div className="h-full border-t border-primary p-8">
               <h3 className="text-xl font-bold">Details</h3>
               <ul className="mt-6 space-y-4 text-sm">
@@ -63,7 +64,7 @@ export function ContactSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
+          <Reveal delay={100} variant="right">
             <form
               className="border border-border bg-card p-8"
               onSubmit={(e) => {
