@@ -9,3 +9,4 @@
 - [x] Apply the selected Editorial Crimson redesign across the one-page portfolio
 - [x] Add smooth reference-inspired motion with reduced-motion support
 - [ ] Verify desktop, mobile, dark mode, filters, and contact form
+- [ ] Match the attached video's editorial maroon visual system and smooth scroll motion
