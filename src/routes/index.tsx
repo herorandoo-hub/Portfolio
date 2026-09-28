@@ -5,7 +5,6 @@ import { profile, skillGroups, categories } from "@/lib/portfolio-data";
 import { ServicesSection } from "@/components/site/sections/ServicesSection";
 import { ExperienceSection } from "@/components/site/sections/ExperienceSection";
 import { PortfolioSection } from "@/components/site/sections/PortfolioSection";
-import { TestimonialsSection } from "@/components/site/sections/TestimonialsSection";
 import { ContactSection } from "@/components/site/sections/ContactSection";
 import { Button } from "@/components/ui/button";
 import portrait from "@/assets/bryant-francisco-portrait.png";
@@ -134,7 +133,6 @@ function Index() {
       <ServicesSection />
       <ExperienceSection />
       <PortfolioSection />
-      <TestimonialsSection />
       <ContactSection />
     </>
   );
