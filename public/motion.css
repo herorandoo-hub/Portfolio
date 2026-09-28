@@ -1,0 +1,63 @@
+/* motion.css — scroll animation layer inspired by your reference video.
+   Edit the two variables below to match your brand color and easing. */
+:root {
+  --mo-accent: #ff4d3d;
+  --mo-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+/* 1) Hero intro: page "zooms in" from slightly small + blurry to sharp */
+.mo-on #home { animation: moZoom 1.5s var(--mo-ease) backwards; }
+@keyframes moZoom {
+  from { opacity: 0; transform: scale(.86); filter: blur(14px); }
+  to   { opacity: 1; transform: none;       filter: none; }
+}
+
+/* 2) Hero parallax while scrolling (--p goes 0 -> 1, set by motion.js) */
+.mo-on #home img {
+  transform: translate3d(0, calc(var(--p, 0) * 70px), 0) scale(calc(1 + var(--p, 0) * .07));
+  will-change: transform;
+}
+.mo-on #home h1 {
+  transform: translate3d(0, calc(var(--p, 0) * -50px), 0);
+  opacity: calc(1 - var(--p, 0) * .85);
+  will-change: transform, opacity;
+}
+
+/* 3) Scroll reveal: fade up + blur-to-sharp, staggered (delay set per element) */
+.mo-on .mo-reveal {
+  opacity: 0;
+  transform: translateY(38px) scale(.97);
+  filter: blur(10px);
+  transition:
+    opacity   .9s var(--mo-ease) var(--d, 0ms),
+    transform .9s var(--mo-ease) var(--d, 0ms),
+    filter    .9s var(--mo-ease) var(--d, 0ms);
+}
+.mo-on .mo-reveal.mo-in { opacity: 1; transform: none; filter: none; }
+
+/* 4) Card hover lift */
+.mo-on article.mo-in:hover,
+.mo-on [class*="card"].mo-in:hover,
+.mo-on [class*="project"].mo-in:hover {
+  transform: translateY(-6px);
+}
+
+/* 5) Floating orbs (stand-ins for the 3D objects in the video) */
+.mo-orbs { position: fixed; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.mo-orb { position: absolute; will-change: transform; }
+.mo-orb > i {
+  display: block; width: 100%; height: 100%; border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, rgba(255,255,255,.6), var(--mo-accent) 38%, rgba(40,0,0,.9) 74%);
+  box-shadow: inset -8px -10px 24px rgba(0,0,0,.45), 0 12px 40px rgba(255,77,61,.25);
+  animation: moBob 6s ease-in-out infinite alternate;
+}
+.mo-orb > img { display: block; width: 100%; height: auto; animation: moBob 6s ease-in-out infinite alternate; }
+@keyframes moBob {
+  from { transform: translateY(-10px) rotate(-4deg); }
+  to   { transform: translateY(10px)  rotate(4deg); }
+}
+
+@media (max-width: 700px) { .mo-orbs { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .mo-orbs { display: none; }
+}
