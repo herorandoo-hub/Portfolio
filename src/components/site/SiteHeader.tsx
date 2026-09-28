@@ -9,7 +9,6 @@ const nav = [
   { id: "services", label: "Services" },
   { id: "experience", label: "Experience" },
   { id: "portfolio", label: "Portfolio" },
-  { id: "testimonials", label: "Testimonials" },
   { id: "contact", label: "Contact" },
 ] as const;
 
