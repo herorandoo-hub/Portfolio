@@ -1,12 +1,22 @@
-import aiChatbotAsset from "@/assets/ai-customer-support-chatbot.jpg.asset.json";
-import aiVideoAsset from "@/assets/ai-video-creator-n8n.jpg.asset.json";
-import contentRepurposingAsset from "@/assets/content-repurposing-zapier.jpg.asset.json";
-import gmailAttachmentsAsset from "@/assets/gmail-attachments-make.jpg.asset.json";
-import hrEvaluationAsset from "@/assets/hr-evaluation-n8n.jpg.asset.json";
-import jobScraperAsset from "@/assets/job-scraper-n8n.jpg.asset.json";
-import leadAutomationAsset from "@/assets/lead-automation-zapier.jpg.asset.json";
-import leadFollowUpAsset from "@/assets/lead-follow-up-ghl.jpg.asset.json";
-import xeroAsanaAsset from "@/assets/xero-asana-make.jpg.asset.json";
+import aiChatbotImg from "@/assets/ai-customer-support-chatbot.jpg";
+import aiVideoImg from "@/assets/ai-video-creator-n8n.jpg";
+import contentRepurposingImg from "@/assets/content-repurposing-zapier.jpg";
+import gmailAttachmentsImg from "@/assets/gmail-attachments-make.jpg";
+import hrEvaluationImg from "@/assets/hr-evaluation-n8n.jpg";
+import jobScraperImg from "@/assets/job-scraper-n8n.jpg";
+import leadAutomationImg from "@/assets/lead-automation-zapier.jpg";
+import leadFollowUpImg from "@/assets/lead-follow-up-ghl.jpg";
+import xeroAsanaImg from "@/assets/xero-asana-make.jpg";
+
+const aiChatbotAsset = { url: aiChatbotImg };
+const aiVideoAsset = { url: aiVideoImg };
+const contentRepurposingAsset = { url: contentRepurposingImg };
+const gmailAttachmentsAsset = { url: gmailAttachmentsImg };
+const hrEvaluationAsset = { url: hrEvaluationImg };
+const jobScraperAsset = { url: jobScraperImg };
+const leadAutomationAsset = { url: leadAutomationImg };
+const leadFollowUpAsset = { url: leadFollowUpImg };
+const xeroAsanaAsset = { url: xeroAsanaImg };
 
 export const profile = {
   name: "Bryant Francisco",
