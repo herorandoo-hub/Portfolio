@@ -8,7 +8,7 @@ import { PortfolioSection } from "@/components/site/sections/PortfolioSection";
 import { TestimonialsSection } from "@/components/site/sections/TestimonialsSection";
 import { ContactSection } from "@/components/site/sections/ContactSection";
 import { Button } from "@/components/ui/button";
-import portraitAsset from "@/assets/bryant-francisco-portrait.png.asset.json";
+import portrait from "@/assets/bryant-francisco-portrait.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,7 +70,7 @@ function Index() {
             <div className="portrait-frame group relative mx-auto max-w-md">
               <div className="portrait-photo aspect-[3/4] overflow-hidden bg-muted">
                 <img
-                  src={portraitAsset.url}
+                  src={portrait}
                   alt="Bryant Francisco, AI Automation Specialist"
                   className="portrait-image h-full w-full object-cover object-top"
                   fetchPriority="high"
